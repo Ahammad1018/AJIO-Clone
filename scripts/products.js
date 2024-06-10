@@ -200,7 +200,7 @@ function addToCart(id) {
         previousCartStorage.push(newData);
         localStorage.setItem('Cart_Added_Products', JSON.stringify(previousCartStorage));
     }else{
-        previousCartStorage[existingCartProductIndex].Quantity += 1;
+        parseInt(previousCartStorage[existingCartProductIndex].Quantity) += 1;
         localStorage.setItem('Cart_Added_Products', JSON.stringify(previousCartStorage));
     }
     }else{
