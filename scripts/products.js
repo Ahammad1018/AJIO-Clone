@@ -200,8 +200,11 @@ function addToCart(id) {
         previousCartStorage.push(newData);
         localStorage.setItem('Cart_Added_Products', JSON.stringify(previousCartStorage));
     }else{
-        parseInt(previousCartStorage[existingCartProductIndex].Quantity) += 1;
-        localStorage.setItem('Cart_Added_Products', JSON.stringify(previousCartStorage));
+        if (previousCartStorage[existingCartProductIndex].Quantity !== 10 && previousCartStorage[existingCartProductIndex].Quantity < 11){
+            const newQty = parseInt(previousCartStorage[existingCartProductIndex].Quantity) + 1;
+            previousCartStorage[existingCartProductIndex].Quantity = newQty;
+            localStorage.setItem('Cart_Added_Products', JSON.stringify(previousCartStorage));
+        };
     }
     }else{
         document.querySelector('.size-alert-span').style.visibility = 'visible';
